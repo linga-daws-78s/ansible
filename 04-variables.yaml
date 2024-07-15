@@ -1,0 +1,18 @@
+- name: variables
+  hosts: localhost
+  vars: # variable declaration
+    Course: "Terraform"
+    Traineer: "Siva"
+    Duration: "15Hrs"
+
+  tasks:
+  - name: print information
+    ansible.builtin.debug:
+       msg: "Hi, We are learning {{Course}} from Trainer {{Trainer}}, Duration is {{Durarion}} "
+
+
+
+
+
+
+
