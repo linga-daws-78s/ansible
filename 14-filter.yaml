@@ -24,3 +24,41 @@
       msg:  "{{ greeting | lower }}"
 
 
+- name: remove duplicates
+  hosts: localhost
+  vars:
+    numbers: [1,2,3,3,4,4,5]
+  tasks:
+  - name: remove duplicates
+    ansible.builtin.debug:
+      msg:  "{{ numbers | unique }}"
+
+
+- name: print min and max 
+  hosts: localhost
+  vars:
+    ages: [25,35,67,89]
+  tasks:
+  - name: print min and max 
+    ansible.builtin.debug:
+      msg:  "min age: {{ ages | min }}, max age: {{ ages | max}}"
+
+
+- name: convert into dictionary int items/list
+  hosts: localhost
+  vars:
+    my_dict: #this is called as dictionary or map or key/value pairs
+      Course: Ansible
+      Trainer: Sivakumar
+      Duration: 120 hrs
+  tasks:
+  - name: before convert
+    ansible.builtin.debug:
+      msg:  "Before convert: {{  my_dict | dic2items }}"   
+  - name: after convert
+    ansible.builtin.debug:
+      msg:  "After convert: {{  my_dict | dic2items }}"   
+
+
+
+
